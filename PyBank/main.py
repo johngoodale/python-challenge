@@ -15,7 +15,6 @@ cmrev = 0
 pmrev = 0
 ttlrev = 0
 revchgs = []
-avg_change = []
 
 
 # open and read the csv
@@ -43,7 +42,7 @@ with open(csvpath, 'r') as csvfile:
                 revchgs.append(revchg)
             pmrev = cmrev
             
-# dig into month by month data
+# dig into month by month change data
 allchanges = sum(revchgs)
 avgchange = round(allchanges / (monthYR_cnt - 1), 2)
 grinc = max(revchgs)
