@@ -49,8 +49,8 @@ grinc = max(revchgs)
 grdec = min(revchgs)
 grincmthindex = revchgs.index(grinc)
 grdecmthindex = revchgs.index(grdec)
-grincmth = monthYR[grincmthindex]
-grdecmth = monthYR[grdecmthindex]
+grincmth = monthYR[grincmthindex + 1]
+grdecmth = monthYR[grdecmthindex + 1]
             
             
 # print to terminal
@@ -77,7 +77,6 @@ with open(output_file, "w") as text:
     text.write(f"Greatest Increase in Profits: {grincmth} (${grinc})" + "\n")
     text.write(f"Greatest Decrease in Profits: {grdecmth} (${grdec})" + "\n")
     text.write("=====================================================" + "\n")
-    
     
     
     

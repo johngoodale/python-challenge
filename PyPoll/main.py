@@ -5,7 +5,7 @@ import os
 import csv
 
 # set file path
-csvpath = os.path.join('..', 'PyPoll', 'election_data.csv')
+csvpath = os.path.join('..', 'Resources', 'election_data.csv')
 
 # define lists & variables
 VoterID = []
@@ -30,11 +30,6 @@ with open(csvpath, 'r') as csvfile:
             #make a list of the Candidates
             Candidate.append(row[2])
             
-            #Run a set to get Candidates
-            Candidates = set(Candidate)
-
-            
-            
 #count Candidate votes
 Khan = (Candidate.count('Khan'))
 OTooley = Candidate.count("O'Tooley")
@@ -48,7 +43,6 @@ Correy_pct = round((Correy / total_votes) * 100, 3)
 Li_pct = round((Li / total_votes) * 100, 3)
                        
 
-            
 # print to terminal
        
 print ("======================================")
