@@ -1,6 +1,5 @@
 # PyBank
 
-
 # import modules
 import os
 import csv
@@ -24,18 +23,18 @@ with open(csvpath, 'r') as csvfile:
         
         csvheader = next(csvreader)
 
-#I need to loop through the data to collect the answers
+# loop through the csv file
         
         for row in csvreader:
            
-            #make a list of the month-yr
+            # make a list of the monthYR
             monthYR_cnt = monthYR_cnt + 1
             monthYR.append(row[0])
                        
-            #total up the P&L across
+            #total up the P&L across the file
             totalPL += int(row[1])
             
-            #changes in rev
+            # find the month to month changes in rev
             cmrev = int(row[1])
             ttlrev = ttlrev + cmrev
             if monthYR_cnt > 1:
@@ -43,7 +42,7 @@ with open(csvpath, 'r') as csvfile:
                 revchgs.append(revchg)
             pmrev = cmrev
             
-# dig into month by month change data
+# now analyze the month by month changes in rev
 allchanges = sum(revchgs)
 avgchange = round(allchanges / (monthYR_cnt - 1), 2)
 grinc = max(revchgs)

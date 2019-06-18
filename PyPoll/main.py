@@ -1,6 +1,5 @@
 #PyPoll
 
-
 # import modules
 import os
 import csv
@@ -10,7 +9,6 @@ csvpath = os.path.join('..', 'Resources', 'election_data.csv')
 
 # define lists & variables
 VoterID = []
-Candidates = []
 Total_Votes = 0
 Candidate_Votes = {}
 Candidate_pct = {}
@@ -24,24 +22,24 @@ with open(csvpath, 'r') as csvfile:
         
         csvheader = next(csvreader)
 
-#I need to loop through the data to collect the answers
+# loop through the csv file
         
         for row in csvreader:
            
-            #make a list of the VoterID's
+            # make a list of the VoterID's
             VoterID.append(row[0])
             
-            #count the VoterIDs to get Total Votes
+            # count the VoterIDs to get Total Votes
             Total_Votes = len(VoterID)
             
-            #make a list of the Candidates
+            # set list of the Candidates for the Candidate_Votes dict
             Candidate = (row[2])
             
-            #Adding candidate votes
+            # adding up candidate votes
             if Candidate in Candidate_Votes:
                 Candidate_Votes[Candidate] = Candidate_Votes[Candidate] + 1
             
-            #Create for different Candidate in list
+            # create for different Candidates, assumes all names are consistent
             else:
                 Candidate_Votes[Candidate] = 1
                 
@@ -51,7 +49,7 @@ with open(csvpath, 'r') as csvfile:
 #print(f"Candidate Vote Totals: {Candidate_Votes}")
 
 
-# calculate vote percentage and identify winner
+# calc the vote percentage and identify who won
 for Official, Vote_Count in Candidate_Votes.items():
     Candidate_pct[Official] = '{0:.3%}'.format(Vote_Count / Total_Votes)
     if Vote_Count > Win_Votes:
