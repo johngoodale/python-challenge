@@ -45,7 +45,7 @@ with open(csvpath, 'r') as csvfile:
                 Candidate_Votes[Candidate] = 1
                 
                
-# Checking the code to this point to see if I am getting correct outputs
+# Checking the code
 #print("Total Votes: " + str(Total_Votes))
 #print(f"Candidate Vote Totals: {Candidate_Votes}")
 
